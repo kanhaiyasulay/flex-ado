@@ -19,7 +19,7 @@ const props = defineProps({
     },
     description: {
         type:String,
-        required: false,
+        required: true,
     },
     status: {
         type:String,
