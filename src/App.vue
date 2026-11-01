@@ -2,7 +2,7 @@
     <h1 style="padding-bottom: 30px;">Flex Board</h1> 
     <p v-if="taskData.length === 0">No tasks available</p>
     <div v-for="task in taskData">
-        <TaskCard :id="task.id" :title="task.title" :description="task.description" :status="task.status"></TaskCard>
+        <TaskCard :id="task.id" :key="task.id" :title="task.title" :description="task.description" :status="task.status"></TaskCard>
         <br>
     </div>
 </template>

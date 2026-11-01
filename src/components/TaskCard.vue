@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p>{{ id }}</p>
-        <h2>{{ title }}</h2>
+        <h2 style="display: inline;">{{ id }}. </h2>
+        <h2 style="display: inline;">{{ title }}</h2>
         <p>{{ description }}</p>
         <p>{{ status }}</p>
     </div>
