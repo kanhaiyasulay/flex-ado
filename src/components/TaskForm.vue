@@ -4,8 +4,12 @@
         <input v-model="title" required type="text" placeholder="enter task title...">
         <p>Task Description: </p>
         <input v-model="description" required type="text" placeholder="enter task description...">
-        <p>Task Status: </p>
-        <input v-model="status" type="text" value="New">
+        <label style="display: block;" for="taskStatus">Task Status: </label>
+        <select v-model="status" name="taskStatus" id="status">
+            <option value="text">New</option>
+            <option value="text">In Progress</option>
+            <option value="text">Done</option>
+        </select>
         <br><br>
         <button type="submit" style="display: block;">Submit</button>
     </form>
@@ -25,7 +29,7 @@
         });
         title.value = '';
         description.value = '';
-        status.value = '';
+        status.value = 'New';
     }
 
 </script>
