@@ -3,12 +3,14 @@
     <Stats :taskData="taskData"></Stats>
     <p v-if="taskData.length === 0">No tasks available</p>
     <TaskCard v-for="task in taskData" :id="task.id" :key="task.id" :title="task.title" :description="task.description" :status="task.status"></TaskCard>
+    <TaskForm @task-created="receiveTask"></TaskForm>
 </template>
 
 <script setup>
     import {ref} from 'vue';
     import TaskCard from './components/TaskCard.vue';
     import Stats from './components/Stats.vue';
+    import TaskForm from './components/TaskForm.vue';
 
     const taskData = ref([
         {
@@ -36,4 +38,13 @@
             status: "New"
         }
     ]);
+
+    const receiveTask = (task) => {
+        const taskId = Math.max(
+            0,
+            ...taskData.value.map(task => task.id)
+        ) + 1;
+        const newTask = {...task, id: taskId};
+        taskData.value.push(newTask);
+    }
 </script>
