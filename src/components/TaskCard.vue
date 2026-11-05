@@ -4,6 +4,8 @@
         <h2 style="display: inline;">{{ title }}</h2>
         <p>{{ description }}</p>
         <p>{{ status }}</p>
+        <button @click="editHandler">Edit</button>
+        <button v-if="isEditing" @click="saveChanges">Done</button>
     </div>
 </template>
 
@@ -26,4 +28,15 @@ defineProps({
         required:true,
     },
 });
+
+let isEditing = false;
+
+const editHandler = (event) => {
+    isEditing = true;
+    const title = ref(event.target.value);
+}
+
+const saveChanges = () => {
+    isEditing = false;
+}
 </script>
