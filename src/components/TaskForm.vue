@@ -6,9 +6,9 @@
         <input v-model="description" required type="text" placeholder="enter task description...">
         <label style="display: block;" for="taskStatus">Task Status: </label>
         <select v-model="status" name="taskStatus" id="status">
-            <option value="text">New</option>
-            <option value="text">In Progress</option>
-            <option value="text">Done</option>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
         </select>
         <br><br>
         <button type="submit" style="display: block;">Submit</button>
