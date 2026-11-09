@@ -1,6 +1,6 @@
 <template>
     <article>
-        <!-- handeled the conversion of input and para using if-else -->
+        <!-- handeled the conversion dynamic of input and para (when use clicks edit btn) using if-else -->
         <template v-if="isEditing">
             <form @submit.prevent="saveChanges">
                 <h2>{{ id }}. Edit task</h2>
