@@ -2,7 +2,7 @@
     <h1 style="padding-bottom: 30px;">Flex Board</h1> 
     <Stats :taskData="taskData"></Stats>
     <p v-if="taskData.length === 0">No tasks available</p>
-    <TaskCard v-for="task in taskData" :id="task.id" :key="task.id" :title="task.title" :description="task.description" :status="task.status"></TaskCard>
+    <TaskCard v-for="task in taskData" @updated-task="handleUpdatedTask" :id="task.id" :key="task.id" :title="task.title" :description="task.description" :status="task.status"></TaskCard>
     <TaskForm @task-created="receiveTask"></TaskForm>
 </template>
 
@@ -46,5 +46,11 @@
         ) + 1;
         const newTask = {...task, id: taskId};
         taskData.value.push(newTask);
+    }
+
+    const handleUpdatedTask = (updatedTask) => {
+        taskData.value = taskData.value.map((task) => {
+            updatedTask.id === task.id ? updatedTask : task
+        });
     }
 </script>
