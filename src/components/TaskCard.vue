@@ -8,14 +8,14 @@
             <input type="text" required v-model="draft.description" id="description-${props.id}">
 
             <label for="status-${props.id}">Status: </label>
-            <select type="dropdown" id="status-${props.id}">
-                <option value="text">New</option>
-                <option value="text">In Progress</option>
-                <option value="text">Done</option>
+            <select type="dropdown" v-model="draft.status" id="status-${props.id}">
+                <option value="New">New</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
             </select>
 
             <button type="submit">Save</button>
-            <button @click="isEditing = false">Cancel</button>
+            <button type="button" @click="isEditing = false">Cancel</button>
         </form>
     </div>
     <div v-else>

@@ -49,8 +49,8 @@
     }
 
     const handleUpdatedTask = (updatedTask) => {
-        taskData.value = taskData.value.map((task) => {
+        taskData.value = taskData.value.map((task) =>
             updatedTask.id === task.id ? updatedTask : task
-        });
+        );
     }
 </script>
