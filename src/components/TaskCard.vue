@@ -1,14 +1,14 @@
 <template>
-    <div v-if="isEditing">
+    <article v-if="isEditing">
         <form @submit.prevent ="saveChages">
-            <label for="title-${props.id}">Title: </label>
-            <input type="text" required v-model="draft.title" id="title-${props.id}">
+            <label :for="`title-${props.id}`">Title: </label>
+            <input type="text" required v-model="draft.title" id="`title-${props.id}`">
 
-            <label for="description-${props.id}">Description: </label>
-            <input type="text" required v-model="draft.description" id="description-${props.id}">
+            <label :for="`description-${props.id}`">Description: </label>
+            <input type="text" required v-model="draft.description" id="`description-${props.id}`">
 
-            <label for="status-${props.id}">Status: </label>
-            <select type="dropdown" v-model="draft.status" id="status-${props.id}">
+            <label :for="`status-${props.id}`">Status: </label>
+            <select type="dropdown" v-model="draft.status" id="`status-${props.id}`">
                 <option value="New">New</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Done">Done</option>
@@ -17,14 +17,14 @@
             <button type="submit">Save</button>
             <button type="button" @click="isEditing = false">Cancel</button>
         </form>
-    </div>
-    <div v-else>
+    </article>
+    <article v-else>
         <h2 style="display: inline;">{{ id }}. </h2>
         <h2 style="display: inline;">{{ title }}</h2>
         <p>{{ description }}</p>
         <p>{{ status }}</p>
         <button @click="handleEdit">Edit</button>
-    </div>
+    </article>
 </template>
 
 <script setup>
