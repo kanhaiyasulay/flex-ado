@@ -27,6 +27,7 @@
             <p>{{ description }}</p>
             <p>{{ status }}</p>
             <button type="button" @click="editHandler">Edit</button>
+            <button type="button" @click="deleteHandler">Delete</button>
         </template>
     </article>
 </template>
@@ -53,7 +54,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['task-updated']);
+const emit = defineEmits(['task-updated', 'task-deleted']);
 const isEditing = ref(false);
 const draft = reactive({
     title: '',
@@ -79,4 +80,8 @@ const saveChanges = () => {
     });
     isEditing.value = false;
 };
+
+const deleteHandler = () => {
+    return emit('task-deleted', props.id);
+}
 </script>

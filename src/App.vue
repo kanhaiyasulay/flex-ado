@@ -10,6 +10,7 @@
         :description="task.description"
         :status="task.status"
         @task-updated="updateTask"
+        @task-deleted="deleteTask"
     />
     <TaskForm @task-created="receiveTask"></TaskForm>
 </template>
@@ -59,6 +60,12 @@
     const updateTask = (updatedTask) => {
         taskData.value = taskData.value.map(task =>
             task.id === updatedTask.id ? updatedTask : task
+        );
+    }
+
+    const deleteTask = (id) => {
+        return taskData.value = taskData.value.filter(task => 
+            task.id !== id
         );
     }
 </script>
